@@ -10,22 +10,20 @@
  */
 class Solution {
     fun kthSmallest(root: TreeNode?, k: Int): Int {
-        
         val stack = Stack<TreeNode?>()
-        
+       
         var tmp = root
-        var currentIndex = k
+        var indexToFind = k
         
-        stack.push(root)
-        while(stack.isNotEmpty() || tmp != null){
+        while(tmp != null || stack.isNotEmpty()){
             while(tmp != null){
                 stack.push(tmp)
-                tmp = tmp?.left
+                tmp = tmp.left
             }
-            
             tmp = stack.pop()
+            
             tmp?.let{
-                if(--currentIndex == 0) return it.`val`
+                if(--indexToFind == 0) return it.`val`
             }
             tmp = tmp?.right
         }
@@ -33,5 +31,4 @@ class Solution {
         return -1
         
     }
-  
 }
