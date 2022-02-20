@@ -24,8 +24,8 @@ class Solution {
             
             tmp?.let{
                 if(--indexToFind == 0) return it.`val`
+                tmp = it.right
             }
-            tmp = tmp?.right
         }
         
         return -1
