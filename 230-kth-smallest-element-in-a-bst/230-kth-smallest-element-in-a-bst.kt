@@ -11,16 +11,16 @@
 class Solution {
     fun kthSmallest(root: TreeNode?, k: Int): Int {
         val list = ArrayList<Int>()
-        inorderTraversal(root, list)
+        inorder(root, list)
         return list[k-1]
+        
     }
     
-    fun inorderTraversal(root: TreeNode?, list: ArrayList<Int>){
-        if(root == null) return
+    fun inorder(root: TreeNode?, list: ArrayList<Int>){
+        if(root == null) return 
         
-        inorderTraversal(root?.left, list)
+        inorder(root?.left, list)
         list.add(root.`val`)
-        inorderTraversal(root?.right, list)
-        
+        inorder(root?.right, list)
     }
 }
