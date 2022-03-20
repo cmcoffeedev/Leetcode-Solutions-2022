@@ -24,10 +24,10 @@ class Solution {
             if(one == null || two == null) return false
             if(one?.`val` != two?.`val`) return false
             
-            queue.offer(one?.left)
-            queue.offer(two?.right)
-            queue.offer(two?.left)
-            queue.offer(one?.right)
+            queue.offer(one.left)
+            queue.offer(two.right)
+            queue.offer(two.left)
+            queue.offer(one.right)
             
         }
         
