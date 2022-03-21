@@ -10,13 +10,12 @@
  */
 class Solution {
     fun isSymmetric(root: TreeNode?): Boolean {
-        
         val queue = LinkedList<TreeNode?>()
+        
         queue.offer(root)
         queue.offer(root)
         
-        while( queue.isNotEmpty() ){
-            
+        while(queue.isNotEmpty()){
             val one = queue.poll()
             val two = queue.poll()
             
@@ -26,6 +25,7 @@ class Solution {
             
             queue.offer(one.left)
             queue.offer(two.right)
+            
             queue.offer(two.left)
             queue.offer(one.right)
             
