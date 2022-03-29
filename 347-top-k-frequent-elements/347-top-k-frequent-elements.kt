@@ -8,21 +8,24 @@ class Solution {
             map[num] = map.getOrDefault(num, 0) + 1
         }
         
-        //custom comparator to use the count of the numbers as the priority
-        val maxHeap = PriorityQueue<Int>( compareByDescending { map[it] } )
+        // create a custom comparator to use the count of the numbers as the priority
+        val minHeap = PriorityQueue<Int>( compareBy { map[it] } )
         
         //add the keys( each number ) to the heap based on the count in the map 
+        // if the minheap size is bigger than k, we want to remove the first element,
+        // because now there could be a new count and we want the top k
         for( key in map.keys ){
-            maxHeap.offer(key)
+            minHeap.offer(key)
+            if(minHeap.size > k) minHeap.poll()
         }
         
         //create an array that is the size of k
         val topK = IntArray(k)
         
-        //add the first k elements in the maxHeap to the array
+        //add the first k elements in the minHeap to the array
         //(problem statement mentions order does not matter)
         for( i in 0 until k ){
-          topK[i] = maxHeap.poll()  
+          topK[i] = minHeap.poll()  
         } 
         
         return topK
