@@ -7,11 +7,12 @@ class Solution {
            //val prev = nums[i-1]
        var validNums = 0 
         val lastIndex = nums.size-1
+         var lastValidIndex = lastIndex //3, //3
        for(currentIndex in 0 until nums.size){
            val current = nums[currentIndex] //3, //2, //3
            if(current == `val`){
                
-               var lastValidIndex = lastIndex //3, //3
+              
                while(lastValidIndex >= 0 && nums[lastValidIndex] ==  `val`){
                     lastValidIndex-- //2,
                    //2, //1
