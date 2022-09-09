@@ -2,7 +2,6 @@ class Solution {
     fun groupAnagrams(strs: Array<String>): List<List<String>> {
         
         val map = mutableMapOf<String, ArrayList<String>>()
-        val list = ArrayList<List<String>>()
         
         for(word in strs){
             val sortedWord = word.split("").sorted().joinToString("")
@@ -11,11 +10,6 @@ class Solution {
             map[sortedWord] = groupList
         }
         
-        map.forEach{ entry ->
-            val groupList = entry.value
-            list.add(groupList)
-        }
-        
-        return list
+        return map.values.toList()
     }
 }
