@@ -1,13 +1,12 @@
 class Solution {
     fun groupAnagrams(strs: Array<String>): List<List<String>> {
         
-        val map = mutableMapOf<String, ArrayList<String>>()
+        val map = mutableMapOf<String, MutableList<String>>()
         
         for(word in strs){
             val sortedWord = word.split("").sorted().joinToString("")
-            val groupList : ArrayList<String> =  map.getOrDefault(sortedWord, ArrayList<String>())
-            groupList.add(word)
-            map[sortedWord] = groupList
+            if(!map.containsKey(sortedWord)) map[sortedWord] = mutableListOf()
+            map[sortedWord]?.add(word)
         }
         
         return map.values.toList()
