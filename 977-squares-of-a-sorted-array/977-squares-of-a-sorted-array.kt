@@ -56,21 +56,15 @@ class Solution {
                sortedNums[currentIndex++] = squaredNums[right++] 
            }
         }
-    
-     //[16,1,0
-         if(right >= squaredNums.size){
-            while(currentIndex < squaredNums.size ){
+ 
+        
+        while(left >= 0) {
               sortedNums[currentIndex++] = squaredNums[left--]  
-            } 
-         }
-     //0,3,10]
-         else if(left < 0){
-            while(currentIndex < squaredNums.size ){
-                sortedNums[currentIndex++] = squaredNums[right++]  
-            }
-         }
+        }
         
-        
+        while(right < squaredNums.size) {
+              sortedNums[currentIndex++] = squaredNums[right++]  
+        }
          
         
         return sortedNums
