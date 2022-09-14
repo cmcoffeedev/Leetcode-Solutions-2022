@@ -8,6 +8,9 @@ class Solution {
         // once I get to 2nd bar, set numOfBars = 0 and 
         // ignore characters until I see another bar
         
+        //another approach
+        // split on bars and only look at even indexes
+        
          var numOfBars = 0
          var asterickCount = 0
          s.forEach{ character->
