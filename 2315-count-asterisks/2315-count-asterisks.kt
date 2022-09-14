@@ -11,10 +11,8 @@ class Solution {
          var numOfBars = 0
          var asterickCount = 0
          val sArray = s.toLowerCase().toCharArray()
-         for(character in sArray){
-             
-            //if(character >= 'a' && character <= 'Z') 
-             if(character == '*' && numOfBars == 0){
+         s.forEach{ character->
+               if(character == '*' && numOfBars == 0){
                  asterickCount++
              }
              else if(character == '|' && numOfBars == 1){
@@ -24,6 +22,7 @@ class Solution {
                  numOfBars = 1 
              }
          }
+    
          // "l|*e*et|c**o|*de|"
          
          return asterickCount
