@@ -10,7 +10,6 @@ class Solution {
         
          var numOfBars = 0
          var asterickCount = 0
-         val sArray = s.toLowerCase().toCharArray()
          s.forEach{ character->
                if(character == '*' && numOfBars == 0){
                  asterickCount++
