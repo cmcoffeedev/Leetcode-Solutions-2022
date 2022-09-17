@@ -26,17 +26,7 @@ class Solution {
             }
         }
         
-        while(listOne != null) {
-            curr.next = ListNode(listOne.`val`)
-            listOne = listOne.next
-            curr = curr.next
-        }
-        
-        while(listTwo != null) {
-            curr.next = ListNode(listTwo.`val`)
-            listTwo = listTwo.next
-            curr = curr.next
-        }
+        curr.next = if(listOne != null) listOne else listTwo
         
         return dummy.next
     }
