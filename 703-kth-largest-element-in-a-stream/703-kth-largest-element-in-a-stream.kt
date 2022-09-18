@@ -1,7 +1,6 @@
-class KthLargest(k: Int, nums: IntArray) {
+class KthLargest(private val k: Int, nums: IntArray) {
     
     val pq = PriorityQueue<Int>()
-    val t = k
     
     init{
        for(num in nums){
@@ -12,7 +11,7 @@ class KthLargest(k: Int, nums: IntArray) {
 
     fun add(`val`: Int): Int {
        pq.offer(`val`)
-       if(pq.size > t) pq.poll()
+       if(pq.size > k) pq.poll()
        return pq.peek()
     }
 
