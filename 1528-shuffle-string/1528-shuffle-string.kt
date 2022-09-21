@@ -1,14 +1,14 @@
 class Solution {
     fun restoreString(s: String, indices: IntArray): String {
-        var sArray = s.toCharArray()
-        val cArray = CharArray(sArray.size)
         
-        for(i in 0 until indices.size){
-            val currentChar = sArray[i]
-            val currentIndex = indices[i]
-            cArray[currentIndex] = currentChar 
+        val sArray = s.toCharArray()
+        val restored = CharArray(sArray.size)
+        
+        sArray.forEachIndexed{ index, currentChar ->
+            val correctIndex = indices[index]
+            restored[correctIndex] = currentChar
         }
         
-        return String(cArray)
+        return String(restored)
     }
 }
