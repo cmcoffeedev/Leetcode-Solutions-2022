@@ -1,10 +1,9 @@
 class Solution {
     fun restoreString(s: String, indices: IntArray): String {
         
-        val sArray = s.toCharArray()
-        val restored = CharArray(sArray.size)
+        val restored = CharArray(s.length)
         
-        sArray.forEachIndexed{ index, currentChar ->
+        s.forEachIndexed{ index, currentChar ->
             val correctIndex = indices[index]
             restored[correctIndex] = currentChar
         }
