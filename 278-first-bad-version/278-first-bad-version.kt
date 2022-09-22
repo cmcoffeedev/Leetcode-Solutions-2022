@@ -7,13 +7,13 @@ class Solution: VersionControl() {
         var left = 0
         var right = n
         
-        while(left <= right){
+        while(left < right){
             val mid = left + (right - left)/2
             
             if(isBadVersion(mid)){
-                right = mid - 1
+                right = mid
             }
-            else if(!isBadVersion(mid)){
+            else{
                 left = mid + 1
             }
             
