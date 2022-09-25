@@ -9,13 +9,21 @@
  */
 class Solution {
     fun middleNode(head: ListNode?): ListNode? {
-        var slow = head
-        var fast = head
-        while(fast != null && fast?.next != null){
-            slow = slow?.next
-            fast = fast?.next?.next
+        var tmp = head
+        var count = 0
+        while(tmp != null){
+            tmp = tmp?.next
+            count++
+        }
+        var middle = count / 2
+        
+        tmp = head
+        count = 0
+        while(count < middle){
+            tmp = tmp?.next
+            count++
         }
         
-        return slow
+        return tmp
     }
 }
