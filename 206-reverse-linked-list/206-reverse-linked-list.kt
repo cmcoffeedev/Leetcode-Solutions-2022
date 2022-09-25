@@ -10,14 +10,25 @@
 class Solution {
     fun reverseList(head: ListNode?): ListNode? {
         var prev : ListNode? = null
-        var tmp = head
-        while(tmp != null){
-            val next = tmp.next
-            tmp.next = prev
-            prev = tmp
-            tmp = next
-        }
+        return reverse(prev, head)
+    }
+    
+    fun reverse(prev: ListNode?, head: ListNode?): ListNode?{
         
-        return prev
+        var previous = prev
+        var tmp = head 
+        val next = tmp?.next
+        tmp?.next = previous
+        
+        
+        if(next == null) return tmp
+        
+        if(next?.next == null){
+            next?.next = tmp 
+            return next
+        } 
+        
+        return reverse(tmp, next)
+        
     }
 }
