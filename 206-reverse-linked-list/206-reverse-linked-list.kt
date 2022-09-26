@@ -9,8 +9,22 @@
  */
 class Solution {
     fun reverseList(head: ListNode?): ListNode? {
-        var prev : ListNode? = null
-        return reverse(prev, head)
+        return reverseTwo(head)
+    }
+    
+    fun reverseTwo(head: ListNode?): ListNode?{
+        var prev: ListNode? = null
+
+        if (head==null || head.next == null)
+            return head
+        
+        var current = head
+
+        prev = reverseTwo(current.next)
+        current.next.next = current
+        current.next = null
+
+        return prev; 
     }
     
     fun reverse(prev: ListNode?, head: ListNode?): ListNode?{
