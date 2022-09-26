@@ -9,42 +9,29 @@
  */
 class Solution {
     fun reverseList(head: ListNode?): ListNode? {
-        var prev : ListNode? = null
-        return reverse(prev, head)
-        //return reverseTwo(head)
-    }
-    
-    fun reverseTwo(head: ListNode?): ListNode?{
-        var prev: ListNode? = null
-
-        if (head==null || head.next == null)
-            return head
+        if(head == null) return head
+        
+        val stack = Stack<ListNode?>()
         
         var current = head
-
-        prev = reverseTwo(current.next)
-        current.next.next = current
-        current.next = null
-
-        return prev; 
+        
+        while(current != null){
+            stack.push(current)
+            current = current?.next
+        }
+        
+        var dummy = ListNode(-1)
+        var tmp: ListNode? = dummy
+        
+        while(stack.isNotEmpty()){
+            tmp?.next = stack.pop()
+            tmp = tmp?.next
+        }
+        tmp?.next = null
+        
+        return dummy.next
+        
     }
     
-    fun reverse(prev: ListNode?, head: ListNode?): ListNode?{
-        
-        var previous = prev
-        var tmp = head 
-        val next = tmp?.next
-        tmp?.next = previous
-        
-        
-        if(next == null) return tmp
-        
-        if(next?.next == null){
-            next?.next = tmp 
-            return next
-        } 
-        
-        return reverse(tmp, next)
-        
-    }
+   
 }
