@@ -18,7 +18,6 @@ class Solution {
         
         val set = HashSet<List<Int>>()
         
-        val list = mutableListOf< List<Int> >()
         
         val map = mutableMapOf<Int, Int>()
         nums.forEachIndexed{ index, num ->
@@ -34,10 +33,7 @@ class Solution {
                 map[three]?.let{ thirdIndex ->
                    if( thirdIndex != i && thirdIndex != j){
                        val innerList = listOf(one, two, three).sorted()
-                       if(!set.contains(innerList)){
-                           list.add(innerList) 
-                           set.add(innerList)
-                       }    
+                       set.add(innerList)
                    }
                 }
             }
@@ -46,7 +42,7 @@ class Solution {
         //one = -1, two = 0, sum = -1, three = (0 - - 1) = 1
         //one = -1, two = 2, sum = 1, three = (0 - 1) = -1
         
-        return list
+        return set.toList()
          //  [-1,0,1,2,-1,-4]
         
         
