@@ -12,3 +12,6 @@ class Solution {
         return map.values.toList()
     }
 }
+// ["eat","tea","tan","ate","nat","bat"]
+// "nat","tan"
+// ant, ant = [nat, tan]
